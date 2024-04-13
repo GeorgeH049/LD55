@@ -1,0 +1,6 @@
+[gd_resource type="SystemFont" format=3 uid="uid://oyc4yuhomri1"]
+
+[resource]
+font_names = PackedStringArray("Ink Free", "Rage", "Freestyle Script", "Segoe Script")
+font_italic = true
+subpixel_positioning = 0

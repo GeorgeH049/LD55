@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpccgyk2ewbxi"]
+
+[ext_resource type="Texture2D" uid="uid://dgxhohhwn47f1" path="res://media/menu_bg.png" id="1_2ngq0"]
+[ext_resource type="Script" path="res://levels/menu.gd" id="1_amib1"]
+[ext_resource type="PackedScene" uid="uid://xl6gqsggsssp" path="res://components/hover_button.tscn" id="2_vdrpu"]
+[ext_resource type="SystemFont" uid="uid://oyc4yuhomri1" path="res://media/menu_font.tres" id="3_g3m7t"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_amib1")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(320, 180)
+texture = ExtResource("1_2ngq0")
+
+[node name="ButtonsList" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.062
+anchor_top = 0.278
+anchor_right = 0.375
+anchor_bottom = 0.944
+offset_left = 0.32
+offset_top = -0.0800095
+offset_right = -1.52588e-05
+offset_bottom = 0.159973
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BeginButton" parent="ButtonsList" instance=ExtResource("2_vdrpu")]
+layout_mode = 2
+text = "Start"
+hover_text = "Begin"
+list_text = "Principio"
+
+[node name="OptionsButton" parent="ButtonsList" instance=ExtResource("2_vdrpu")]
+layout_mode = 2
+text = "Options"
+hover_text = "Options"
+list_text = "Opto"
+
+[node name="QuitButton" parent="ButtonsList" instance=ExtResource("2_vdrpu")]
+layout_mode = 2
+text = "End"
+hover_text = "Exit"
+list_text = "Egredior"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 572.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_g3m7t")
+theme_override_font_sizes/font_size = 60
+text = "The Cost of Knowledge"
+
+[connection signal="pressed" from="ButtonsList/BeginButton" to="." method="_on_begin_button_pressed"]
+[connection signal="pressed" from="ButtonsList/QuitButton" to="." method="_on_quit_button_pressed"]

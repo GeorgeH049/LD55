@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cly3p782lfvxr"]
+
+[ext_resource type="Script" path="res://levels/intro.gd" id="1_xdunu"]
+[ext_resource type="Texture2D" uid="uid://vvqhcktewgyw" path="res://media/dialogue_bg.png" id="2_jjs3e"]
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xdunu")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("2_jjs3e")
+
+[node name="Dialogue" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 220.0
+offset_right = 600.0
+offset_bottom = 320.0
+bbcode_enabled = true
+text = " "
+scroll_active = false
