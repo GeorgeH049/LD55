@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://4g40wesf7e11"]
+
+[ext_resource type="Script" path="res://components/ingredient_button.gd" id="1_fy3rn"]
+
+[node name="IngredientButton" type="OptionButton" groups=["RequiredChoice"]]
+anchors_preset = -1
+anchor_right = 0.306
+anchor_bottom = 0.067
+offset_right = 0.159988
+offset_bottom = 1.88
+script = ExtResource("1_fy3rn")
