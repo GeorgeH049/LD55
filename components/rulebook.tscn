@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://dme7cjkmwsjsl"]
+
+[ext_resource type="Script" path="res://components/Rulebook.gd" id="1_f8ysd"]
+[ext_resource type="Texture2D" uid="uid://dgxhohhwn47f1" path="res://media/paper_bg.png" id="2_a88pr"]
+
+[node name="Rulebook" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f8ysd")
+
+[node name="BG" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("2_a88pr")
+centered = false
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 94.0
+offset_right = -45.0
+offset_bottom = -85.0
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Rule 1:"
+
+[node name="Rule1" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Rule 2:"
+
+[node name="Rule2" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Rule 3:"
+
+[node name="Rule3" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Rule 4:"
+
+[node name="Rule4" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="GridContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Rule 5:"
+
+[node name="Rule5" type="LineEdit" parent="GridContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -101.0
+offset_bottom = 42.0
+grow_horizontal = 0
+text = "Close"
+
+[connection signal="text_changed" from="GridContainer/Rule1" to="." method="_on_rule_text_changed" binds= [1]]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

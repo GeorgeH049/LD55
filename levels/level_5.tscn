@@ -1,0 +1,152 @@
+[gd_scene load_steps=11 format=3 uid="uid://bvon6vlmp1uj"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_05shr"]
+[ext_resource type="PackedScene" uid="uid://gmkbe4bj7ess" path="res://components/sound_feedback_player.tscn" id="2_24ptk"]
+[ext_resource type="Texture2D" uid="uid://dgxhohhwn47f1" path="res://media/paper_bg.png" id="2_rxhso"]
+[ext_resource type="PackedScene" uid="uid://4g40wesf7e11" path="res://components/ingredient_button.tscn" id="5_d1p2q"]
+[ext_resource type="Texture2D" uid="uid://c185esx0h15a" path="res://media/circle_2.png" id="5_m5pb4"]
+[ext_resource type="Texture2D" uid="uid://dqgyoq4sccyrs" path="res://media/ingredients/acorn.png" id="6_c1751"]
+[ext_resource type="SystemFont" uid="uid://oyc4yuhomri1" path="res://media/menu_font.tres" id="7_lf7pf"]
+[ext_resource type="PackedScene" uid="uid://dme7cjkmwsjsl" path="res://components/rulebook.tscn" id="8_hmtof"]
+[ext_resource type="PackedScene" uid="uid://dgsf510vvxf4r" path="res://components/history.tscn" id="9_1lypt"]
+[ext_resource type="PackedScene" uid="uid://biigr5pril0bt" path="res://components/fail_screen.tscn" id="10_l8orv"]
+
+[node name="LevelRoot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_05shr")
+demon_name = "ist"
+num_components = 2
+next_level = "res://levels/level_6.tscn"
+
+[node name="SoundFeedbackPlayer" parent="." instance=ExtResource("2_24ptk")]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Floor" type="Sprite2D" parent="Background"]
+texture_repeat = 2
+texture = ExtResource("2_rxhso")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 360)
+
+[node name="Ingredient0" type="Sprite2D" parent="Background" groups=["IngredientImage"]]
+position = Vector2(320, 106)
+texture = ExtResource("6_c1751")
+
+[node name="Ingredient1" type="Sprite2D" parent="Background" groups=["IngredientImage"]]
+position = Vector2(320, 254)
+texture = ExtResource("6_c1751")
+
+[node name="Foreground" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubmitButton" type="TextureButton" parent="Foreground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.405
+anchor_top = 0.333
+anchor_right = 0.605
+anchor_bottom = 0.689
+offset_left = -0.200012
+offset_top = 0.119995
+offset_right = -0.200012
+offset_bottom = -0.039978
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("5_m5pb4")
+
+[node name="Label" type="Label" parent="Foreground/SubmitButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -11.0
+offset_right = 24.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+text = "Summon"
+
+[node name="IngredientButton0" parent="Foreground" instance=ExtResource("5_d1p2q")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 234.0
+offset_top = 58.0
+offset_right = 409.0
+offset_bottom = 78.0
+
+[node name="IngredientButton1" parent="Foreground" instance=ExtResource("5_d1p2q")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 234.0
+offset_top = 275.0
+offset_right = 409.0
+offset_bottom = 295.0
+
+[node name="DemonName" type="Label" parent="Foreground"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 572.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_lf7pf")
+theme_override_font_sizes/font_size = 60
+text = "MMM"
+
+[node name="RulesButton" type="Button" parent="Foreground"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -87.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Rulebook"
+
+[node name="HistoryButton" type="Button" parent="Foreground"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -67.0
+offset_top = 35.0
+offset_bottom = 66.0
+grow_horizontal = 0
+text = "History"
+
+[node name="Rulebook" parent="Foreground" instance=ExtResource("8_hmtof")]
+layout_mode = 1
+
+[node name="History" parent="Foreground" instance=ExtResource("9_1lypt")]
+layout_mode = 1
+
+[node name="FailScreen" parent="Foreground" instance=ExtResource("10_l8orv")]
+layout_mode = 1
+
+[connection signal="pressed" from="Foreground/SubmitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="item_selected" from="Foreground/IngredientButton0" to="." method="_on_ingredient_selected" binds= [0]]
+[connection signal="item_selected" from="Foreground/IngredientButton1" to="." method="_on_ingredient_selected" binds= [1]]
+[connection signal="pressed" from="Foreground/RulesButton" to="." method="_on_rules_button_pressed"]
+[connection signal="pressed" from="Foreground/HistoryButton" to="." method="_on_history_button_pressed"]

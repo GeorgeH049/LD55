@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gmkbe4bj7ess"]
+
+[ext_resource type="Script" path="res://components/sound_feedback_player.gd" id="1_p5425"]
+
+[node name="SoundFeedbackPlayer" type="AudioStreamPlayer"]
+script = ExtResource("1_p5425")

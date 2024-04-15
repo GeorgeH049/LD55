@@ -1,6 +1,6 @@
 extends OptionButton
 
-const Level = preload("res://utils/level.gd")
+const Level = preload("res://utils/level_helper.gd")
 
 var level
 

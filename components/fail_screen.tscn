@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://biigr5pril0bt"]
+
+[ext_resource type="Script" path="res://components/fail_screen.gd" id="1_vwhyg"]
+[ext_resource type="Texture2D" uid="uid://vvqhcktewgyw" path="res://media/dialogue_bg.png" id="2_kqarl"]
+
+[node name="FailScreen" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vwhyg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kqarl")
+centered = false
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 168.0
+offset_right = 553.0
+offset_bottom = 239.0
+bbcode_enabled = true
+text = "[center]Your summoning failed, and you have perished. 
+We shall see how your apprentice fares.[/center]"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 336.0
+offset_right = 637.0
+offset_bottom = 356.0
+theme_override_font_sizes/font_size = 12
+text = "Press LMB to continue"

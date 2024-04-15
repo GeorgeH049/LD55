@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://jvc1c8svqtxa"]
+
+[ext_resource type="Script" path="res://components/BackgroundMusicPlayer.gd" id="1_8mm73"]
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer"]
+script = ExtResource("1_8mm73")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

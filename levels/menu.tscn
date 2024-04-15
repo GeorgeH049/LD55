@@ -42,6 +42,7 @@ list_text = "Principio"
 
 [node name="OptionsButton" parent="ButtonsList" instance=ExtResource("2_vdrpu")]
 layout_mode = 2
+disabled = true
 text = "Options"
 hover_text = "Options"
 list_text = "Opto"
@@ -56,12 +57,12 @@ list_text = "Egredior"
 layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
-offset_right = 572.0
-offset_bottom = 71.0
+offset_right = 731.0
+offset_bottom = 75.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_g3m7t")
-theme_override_font_sizes/font_size = 60
-text = "The Cost of Knowledge"
+theme_override_font_sizes/font_size = 51
+text = "The Summoner's Apprentice"
 
 [connection signal="pressed" from="ButtonsList/BeginButton" to="." method="_on_begin_button_pressed"]
 [connection signal="pressed" from="ButtonsList/QuitButton" to="." method="_on_quit_button_pressed"]

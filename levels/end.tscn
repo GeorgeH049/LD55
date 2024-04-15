@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmtnmugqd5dob"]
+
+[ext_resource type="Script" path="res://levels/end.gd" id="1_3o2bu"]
+[ext_resource type="Texture2D" uid="uid://vvqhcktewgyw" path="res://media/dialogue_bg.png" id="2_ahxb0"]
+
+[node name="End" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3o2bu")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("2_ahxb0")
+
+[node name="Dialogue" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 220.0
+offset_right = 600.0
+offset_bottom = 320.0
+bbcode_enabled = true
+text = " "
+scroll_active = false
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 336.0
+offset_right = 637.0
+offset_bottom = 356.0
+theme_override_font_sizes/font_size = 12
+text = "Press LMB to continue"

@@ -17,6 +17,11 @@ boot_splash/image="res://media/antisage_logo.png"
 boot_splash/fullsize=false
 config/icon="res://media/icon.svg"
 
+[autoload]
+
+BackgroundMusicPlayer="res://components/background_music_player.tscn"
+PersistedVars="*res://utils/persisted_vars.gd"
+
 [display]
 
 window/size/viewport_width=640
